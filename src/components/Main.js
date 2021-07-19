@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Search from './Search';
-import Table from './Table';
+import Table from './Table/Table';
 import Selection from './Selection';
 
 const MainStyle = styled.main`
@@ -37,7 +37,6 @@ function Main() {
         }));
         
         setData(rows);
-        console.log(rows);
       });
   }, []);
 
@@ -54,8 +53,8 @@ function Main() {
       )}
       {selection && (
         <Selection
-          car={selection.car}
-          year={selection.year}
+          car={selection.title}
+          year={selection.value}
         />
       )}
     </MainStyle>
