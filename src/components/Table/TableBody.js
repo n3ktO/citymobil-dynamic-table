@@ -41,11 +41,13 @@ const TableBody = memo(({
 
     if (firstValue < secondValue) {
       return sorting.ascending ? -1 : 1;
-    } else if (firstValue > secondValue) {
-      return sorting.ascending ? 1 : -1;
-    } else {
-      return 0;
     }
+    
+    if (firstValue > secondValue) {
+      return sorting.ascending ? 1 : -1;
+    }
+    
+    return 0;
   }
 
   return (
