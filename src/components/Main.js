@@ -21,23 +21,25 @@ function Main() {
   const [selection, setSelection] = useState();
 
   useEffect(() => {
-    fetch('https://city-mobil.ru/api/cars')
-      .then(res => res.json())
-      .then(data => {
-        const columnTitles = ['Марка и модель', ...data['tariffs_list']];
-        setColumns(columnTitles);
+    (async () => {
+      const response = await fetch('https://city-mobil.ru/api/cars');
+      const data = await response.json();
 
-        const rows = data['cars'].map((car => {
-          return columnTitles.map((title, index) => {
-            if (index === 0) {
-              return `${car.mark} ${car.model}`;
-            }
-            return car['tariffs'][title]?.['year'];
-          });
-        }));
-        
-        setData(rows);
+      const columnTitles = ['Марка и модель', ...data['tariffs_list']];
+      setColumns(columnTitles);
+
+      const rows = data['cars'].map((car, id) => {
+        const row = columnTitles.map((title, index) => {
+          if (index === 0) {
+            return `${car.mark} ${car.model}`;
+          }
+          return car['tariffs'][title]?.['year'];
+        });
+        return { id, data: row };
       });
+      
+      setData(rows);
+    })();
   }, []);
 
   return (

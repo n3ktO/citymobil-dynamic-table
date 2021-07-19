@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const TableCellStyle = styled.td`
@@ -13,7 +14,7 @@ font-size: 14px;
 }
 `;
 
-function TableBodyCell({ rowTitle, value, index }) {
+const TableBodyCell = memo(({ rowTitle, value, index }) => {
   return (
     <TableCellStyle
       key={index}
@@ -25,6 +26,6 @@ function TableBodyCell({ rowTitle, value, index }) {
       {value ?? '—'}
     </TableCellStyle>
   );
-}
+});
 
 export default TableBodyCell;

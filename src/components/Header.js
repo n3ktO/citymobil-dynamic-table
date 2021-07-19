@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const HeaderStyle = styled.header`
@@ -9,6 +10,6 @@ height: 48px;
 background: #f2f3f4;
 `;
 
-const Header = () => <HeaderStyle>header</HeaderStyle>;
+const Header = memo(() => <HeaderStyle>header</HeaderStyle>);
 
 export default Header;

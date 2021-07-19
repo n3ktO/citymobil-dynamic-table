@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const SelectionStyle = styled.div`
@@ -12,12 +13,10 @@ const SelectionStyle = styled.div`
   font-size: 16px;
 `;
 
-function Selection({ car, year }) {
-  return (
-    <SelectionStyle>
-      Выбран автомобиль {car} {year} года выпуска.
-    </SelectionStyle>
-  );
-} 
+const Selection = memo(({ car, year }) => (
+  <SelectionStyle>
+    Выбран автомобиль {car} {year} года выпуска.
+  </SelectionStyle>
+));
 
 export default Selection;

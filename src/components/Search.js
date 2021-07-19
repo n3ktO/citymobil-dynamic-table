@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const SearchStyle = styled.input`
@@ -11,13 +12,11 @@ const SearchStyle = styled.input`
   font-size: 16px;
 `;
 
-function Search({ onEdit }) {
-  return (
-    <SearchStyle
-      placeholder="Поиск..."
-      onChange={e => onEdit(e.currentTarget.value.toLowerCase())}
-    />
-  );
-} 
+const Search = memo(({ onEdit }) => (
+  <SearchStyle
+    placeholder="Поиск..."
+    onChange={e => onEdit(e.currentTarget.value.toLowerCase())}
+  />
+)); 
 
 export default Search;

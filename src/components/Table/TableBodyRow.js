@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import TableBodyCell from './TableBodyCell';
 
-function TableBodyRow({ row, index }) {
+const TableBodyRow = memo(({ row }) => {
   return (
     <tr>
       {row.map((value, valueIndex) => (
@@ -13,6 +14,6 @@ function TableBodyRow({ row, index }) {
       ))}
     </tr>
   );
-}
+});
 
 export default TableBodyRow;

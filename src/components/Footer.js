@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const FooterStyle = styled.footer`
@@ -11,6 +12,6 @@ bottom: 0;
 background: #d4d5d6;;
 `;
 
-const Footer = () => <FooterStyle>footer</FooterStyle>;
+const Footer = memo(() => <FooterStyle>footer</FooterStyle>);
 
 export default Footer;

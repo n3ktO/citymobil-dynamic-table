@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const TableHeaderRowStyle = styled.tr`
@@ -27,11 +28,11 @@ border: 1px solid #dee5eb;
 }
 `;
 
-function TableHeader({
+const TableHeader = memo(({
   columns = [],
   sorting,
   setSorting
-}) {
+}) => {
   function handleHeaderCellClick(event) {
     const index = +event.target.getAttribute('data-key');
     setSorting({
@@ -55,6 +56,6 @@ function TableHeader({
       </TableHeaderRowStyle>
     </thead>
   );
-}
+});
 
 export default TableHeader;

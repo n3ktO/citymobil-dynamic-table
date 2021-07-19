@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const SidebarStyle = styled.aside`
@@ -9,6 +10,6 @@ min-height: calc(100vh - 48px - 48px);
 background: #e4e5e6;
 `;
 
-const Sidebar = () => <SidebarStyle>sidebar</SidebarStyle>;
+const Sidebar = memo(() => <SidebarStyle>sidebar</SidebarStyle>);
 
 export default Sidebar;
