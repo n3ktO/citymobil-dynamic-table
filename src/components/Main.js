@@ -53,6 +53,7 @@ function Main() {
           filter={filter}
         />
       )}
+      {!data && 'Loading...'}
       {selection && (
         <Selection
           car={selection.title}
